@@ -13,10 +13,10 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('_services', function (Blueprint $table) {
-            $table->id();
+        Schema::create('services', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('clinic_id');
-            $table->foreign('clinic_id')->references('id')->on('_clinic')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('clinic_id')->references('id')->on('clinics');//->onDelete('cascade')->onUpdate('cascade');
             $table->integer('price');
             $table->text('description');
             $table->timestamps();

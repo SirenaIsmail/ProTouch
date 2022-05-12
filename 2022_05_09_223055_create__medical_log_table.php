@@ -14,8 +14,8 @@ class CreateMedicalLogTable extends Migration
 
     public function up()
     {
-        Schema::create('_medical_log', function (Blueprint $table) {
-            $table->id();
+        Schema::create('medical_logs', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('weight');
             $table->string('Allergic');
             $table->string('situation');
@@ -25,7 +25,7 @@ class CreateMedicalLogTable extends Migration
             $table->string('medicine');
             $table->text('notes');
             $table->unsignedInteger('patient_id');
-            $table->foreign('patient_id')->references('id')->on('_patient')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

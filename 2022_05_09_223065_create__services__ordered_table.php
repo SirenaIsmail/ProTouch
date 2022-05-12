@@ -13,11 +13,11 @@ class CreateServicesOrderedTable extends Migration
      */
     public function up()
     {
-        Schema::create('_services__ordered', function (Blueprint $table) {
-            $table->id();
+        Schema::create('services_ordereds', function (Blueprint $table) {
+            $table->increments('id');
             $table->date('Date');
             $table->unsignedInteger('services_id');
-            $table->foreign('services_id')->references('id')->on('_services')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('services_id')->references('id')->on('services');//->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

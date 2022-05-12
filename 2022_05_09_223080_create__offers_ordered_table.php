@@ -13,11 +13,11 @@ class CreateOffersOrderedTable extends Migration
      */
     public function up()
     {
-        Schema::create('_offers_ordered', function (Blueprint $table) {
-            $table->id();
+        Schema::create('offers_ordereds', function (Blueprint $table) {
+            $table->increments('id');
             $table->date('Date');
             $table->unsignedInteger('offer_id');
-            $table->foreign('offer_id')->references('id')->on('_offer')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('offer_id')->references('id')->on('offers');//->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

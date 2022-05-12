@@ -13,16 +13,16 @@ class CreateDoctorTable extends Migration
      */
     public function up()
     {
-        Schema::create('_doctor', function (Blueprint $table) {
-            $table->id();
+        Schema::create('doctors', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
             $table->integer('age');
             $table->string('gender');
             $table->text('specialization');
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users');//->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('clinic_id');
-            $table->foreign('clinic_id')->references('id')->on('_clinic')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('clinic_id')->references('id')->on('clinics');//->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
