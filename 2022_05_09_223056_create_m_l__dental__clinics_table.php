@@ -14,7 +14,8 @@ class CreateMLDentalClinicsTable extends Migration
     public function up()
     {
         Schema::create('m_l__dental__clinics', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->String('Allergic');
             $table->timestamps();
         });
     }
